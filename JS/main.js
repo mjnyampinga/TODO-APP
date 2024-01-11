@@ -3,9 +3,6 @@
 const toDoInput = document.querySelector('.todo-input');
 const toDoBtn = document.querySelector('.todo-btn');
 const toDoList = document.querySelector('.todo-list');
-const standardTheme = document.querySelector('.standard-theme');
-const lightTheme = document.querySelector('.light-theme');
-const darkerTheme = document.querySelector('.darker-theme');
 
 
 // Event Listeners
@@ -13,9 +10,6 @@ const darkerTheme = document.querySelector('.darker-theme');
 toDoBtn.addEventListener('click', addToDo);
 toDoList.addEventListener('click', deletecheck);
 document.addEventListener("DOMContentLoaded", getTodos);
-standardTheme.addEventListener('click', () => changeTheme('standard'));
-lightTheme.addEventListener('click', () => changeTheme('light'));
-darkerTheme.addEventListener('click', () => changeTheme('darker'));
 
 // Check if one theme has been set previously and apply it (or std theme if not found):
 let savedTheme = localStorage.getItem('savedTheme');
@@ -207,12 +201,12 @@ const todoListContainer = document.querySelector('.todo-list-container');
 
 filterDropdown.addEventListener('change', filterTasks);
 
-function filterTasks() {
-    const selectedOption = filterDropdown.value;
+// Add this function to handle filter button clicks
+function filterTasks(option) {
     const todos = document.querySelectorAll('.todo');
 
     todos.forEach(todo => {
-        switch (selectedOption) {
+        switch (option) {
             case 'all':
                 todo.style.display = 'flex';
                 break;
@@ -227,4 +221,3 @@ function filterTasks() {
         }
     });
 }
-

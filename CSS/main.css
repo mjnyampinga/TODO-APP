@@ -50,50 +50,11 @@ body {
     width: 100%;
 }
 
-/* Theme buttons div */
-.flexrow-container {
-    align-items: center;
-    align-self: flex-end;
-    display: flex;
-    justify-content: space-around;
-    margin-right: 3%;
-}
-
-.theme-selector {
-    border: 1px solid #d1dae3;
-    border-radius: 100%;
-    height: 35px;
-    margin: 0 8px;
-    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
-    width: 35px;
-}
-
-.theme-selector:hover { 
-    box-shadow: white 0 0 8px;
-    cursor: pointer;
-}
-
-.theme-selector:active {
-    transform: scale(0.95);
-}
-
-.standard-theme {
-    background-image: linear-gradient(100deg, #575656, #062e3f);
-}
-
-.light-theme {
-    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
-}
-
-.darker-theme {
-    background-image: linear-gradient(100deg, #001214, #001f29);
-}
-
 /* Animation */
 #title {
     border-right: solid 3px rgba(0, 0, 0, 0.75);
-    white-space: pre;
-    overflow: hidden;     
+    white-space: pre; 
+    overflow: hidden;    
     letter-spacing: 0.20rem;
     margin-top: 50px;
     margin-bottom: 20px;
@@ -114,7 +75,7 @@ body {
   
   @keyframes animated-text{
     from{width: 0%;}
-    to{width: 480px;}
+    to{width: 150px;}
   }
   
   /* cursor animations */
@@ -246,6 +207,7 @@ form button {
     justify-content: center;
     align-items: center;
     max-width: 1200px;
+    margin-top: 20px;
 }
 
 .todo-list {
@@ -378,14 +340,31 @@ form button {
         box-shadow: 0 0 5px lightgray;
     }
 }
+
 #filter-options {
     margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
 }
 
-#filter {
-    padding: 5px;
+.filter-btn {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: mediumslateblue;
 }
 
-#filter > option {
-    padding: 5px;
+.filter-btn:hover {
+    background-color: mediumslateblue; 
 }
+
+#filter-options label {
+    margin-right: 10px;
+}
+
+
