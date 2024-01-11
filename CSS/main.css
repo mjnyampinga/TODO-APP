@@ -5,7 +5,6 @@
 }
 
 body {
-    /* #363532, rgb(88, 111, 112) */
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -164,7 +163,6 @@ button {
 button:hover {
     cursor: pointer;
 }
-
 /* Button themes */
 button.standard-button {
     background-color: rgb(247, 226, 223);
@@ -193,7 +191,6 @@ button.darker-button {
 button.darker-button:hover {
     background-color: #001f29;
 }
-
 form button {
     padding: 10px;
     font-size: 17px;
