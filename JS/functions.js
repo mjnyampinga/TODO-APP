@@ -3,8 +3,6 @@
 const toDoInput = document.querySelector('.todo-input');
 const toDoBtn = document.querySelector('.todo-btn');
 const toDoList = document.querySelector('.todo-list');
-
-
 // Event Listeners
 
 toDoBtn.addEventListener('click', addToDo);
@@ -78,6 +76,7 @@ function deletecheck(event){
 
         item.parentElement.addEventListener('transitionend', function(){
             item.parentElement.remove();
+            
         })
     }
 
@@ -92,7 +91,7 @@ function deletecheck(event){
 
 
 // Saving to local storage:
-function savelocal(todo){
+function savelocal(todo){ 
     //Check: if item/s are there;
     let todos;
     if(localStorage.getItem('todos') === null) {
@@ -201,7 +200,7 @@ const todoListContainer = document.querySelector('.todo-list-container');
 
 filterDropdown.addEventListener('change', filterTasks);
 
-// Add this function to handle filter button clicks
+// Filter tasks:
 function filterTasks(option) {
     const todos = document.querySelectorAll('.todo');
 
