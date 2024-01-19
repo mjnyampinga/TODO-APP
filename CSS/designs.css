@@ -6,8 +6,7 @@ body {
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     padding-top: 3%;
-    overflow-y: visible;
-    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Body light or darker themes */
@@ -15,7 +14,7 @@ body {
     background-image: linear-gradient(100deg, #575656, #062e3f);
     color: mediumslateblue;
     transition: 0.3s linear;
-    overflow: hidden;
+    overflow-y: visible;
 }
 
 .light {
