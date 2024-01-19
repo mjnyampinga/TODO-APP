@@ -6,6 +6,8 @@ body {
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     padding-top: 3%;
+    overflow-y: visible;
+    overflow-x: hidden;
 }
 
 /* Body light or darker themes */
