@@ -6,7 +6,6 @@ function randomUUID() {
         return v.toString(16);
     });
 }
-
 // Array to store todo items
 let todos = [];
 
@@ -63,23 +62,17 @@ function addToDo(event) {
     // Clear input
     toDoInput.value = '';
 }
-
-// Other functions remain the same...
-
-
 function renderTodo(todo) {
     // ToDo DIV;
     const toDoDiv = document.createElement("div");
     toDoDiv.dataset.id = todo.id;
     toDoDiv.classList.add('todo', `${savedTheme}-todo`);
 
-
     // Create LI
     const newToDo = document.createElement('li');
     newToDo.innerText = todo.name;
     newToDo.classList.add('todo-item');
     toDoDiv.appendChild(newToDo);
-
 
     // Check btn;
     const checked = document.createElement('button');
@@ -92,16 +85,12 @@ function renderTodo(todo) {
     deleted.classList.add('delete-btn', `${savedTheme}-button`);
     toDoDiv.appendChild(deleted);
 
-
     // Append to list;
     toDoList.appendChild(toDoDiv);
 }
-
-
 function deletecheck(event) {
     const item = event.target;
     const todoDiv = item.parentElement;
-
 
     if (item.classList.contains('delete-btn')) {
         const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
@@ -109,7 +98,6 @@ function deletecheck(event) {
         todoDiv.remove();
         savelocal();
     }
-
 
     if (item.classList.contains('check-btn')) {
         const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
@@ -119,32 +107,24 @@ function deletecheck(event) {
     }
 }
 
-
 // Saving to local storage
 function savelocal() {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
-
-
 function getTodos() {
     todos = JSON.parse(localStorage.getItem('todos')) || [];
     todos.forEach(todo => {
         renderTodo(todo);
     });
 }
-
-
 function removeLocalTodos(todoIndex) {
     todos.splice(todoIndex, 1);
     savelocal();
 }
-
-
 // Function to change the theme
 function changeTheme(color) {
     localStorage.setItem('savedTheme', color);
     savedTheme = localStorage.getItem('savedTheme');
-
 
     document.body.className = color;
     // Change blinking cursor for darker theme
@@ -159,7 +139,6 @@ function changeTheme(color) {
         button.classList.add(`${color}-button`);
     });
 }
-
 
 // Function to generate a unique id for todo items
 function generateId() {

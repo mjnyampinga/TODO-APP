@@ -114,7 +114,6 @@ form input.standard-input {
     color: rgb(247, 226, 223);
 }
 
-
 form input.light-input {
     background-color: #AEB1B4;
     color: #1a150e;
@@ -266,7 +265,6 @@ form button {
     pointer-events: none;
 }
 
-
 .completed {
     transition: 0.2s;
     opacity: 0.5;
@@ -335,7 +333,7 @@ form button {
     }
 }
 
-#filter-Options {
+#filter-options {
     margin-bottom: 15px;
     display: flex;
     justify-content: space-around;
@@ -357,6 +355,6 @@ form button {
     background-color: mediumslateblue; 
 }
 
-#filter-Options label {
+#filter-options label {
     margin-right: 10px;
 }
