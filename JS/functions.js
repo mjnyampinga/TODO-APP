@@ -106,7 +106,16 @@ function deletecheck(event) {
         savelocal();
     }
 }
-
+    if (item.classList.contains('check-btn')) {
+        const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
+        todos[todoIndex].completed = !todos[todoIndex].completed;
+        if (todos[todoIndex].completed) {
+            todoDiv.classList.add('completed');
+        } else {
+            todoDiv.classList.remove('completed');
+        }
+        savelocal();
+    }    
 // Saving to local storage
 function savelocal() {
     localStorage.setItem('todos', JSON.stringify(todos));
