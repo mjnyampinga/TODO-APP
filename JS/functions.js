@@ -6,6 +6,7 @@ function randomUUID() {
         return v.toString(16);
     });
 }
+
 // Array to store todo items
 let todos = [];
 
@@ -62,6 +63,7 @@ function addToDo(event) {
     // Clear input
     toDoInput.value = '';
 }
+
 function renderTodo(todo) {
     // ToDo DIV;
     const toDoDiv = document.createElement("div");
@@ -88,48 +90,37 @@ function renderTodo(todo) {
     // Append to list;
     toDoList.appendChild(toDoDiv);
 }
+
 function deletecheck(event) {
     const item = event.target;
     const todoDiv = item.parentElement;
+    const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
 
     if (item.classList.contains('delete-btn')) {
-        const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
         todos.splice(todoIndex, 1);
         todoDiv.remove();
         savelocal();
     }
 
     if (item.classList.contains('check-btn')) {
-        const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
         todos[todoIndex].completed = !todos[todoIndex].completed;
         todoDiv.classList.toggle('completed');
         savelocal();
     }
 }
-    if (item.classList.contains('check-btn')) {
-        const todoIndex = Array.from(toDoList.children).indexOf(todoDiv);
-        todos[todoIndex].completed = !todos[todoIndex].completed;
-        if (todos[todoIndex].completed) {
-            todoDiv.classList.add('completed');
-        } else {
-            todoDiv.classList.remove('completed');
-        }
-        savelocal();
-    }    
+
 // Saving to local storage
 function savelocal() {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
+
 function getTodos() {
     todos = JSON.parse(localStorage.getItem('todos')) || [];
     todos.forEach(todo => {
         renderTodo(todo);
     });
 }
-function removeLocalTodos(todoIndex) {
-    todos.splice(todoIndex, 1);
-    savelocal();
-}
+
 // Function to change the theme
 function changeTheme(color) {
     localStorage.setItem('savedTheme', color);
@@ -149,18 +140,24 @@ function changeTheme(color) {
     });
 }
 
-// Function to generate a unique id for todo items
-function generateId() {
-    return '_' + Math.random().toString(36).substr(2, 9);
+// Function to filter tasks
+function filterTasks(filterType) {
+    if (filterType === 'all') {
+        showAllTasks();
+    } else if (filterType === 'completed') {
+        showCompletedTasks();
+    } else if (filterType === 'active') {
+        showActiveTasks();
+    }
 }
 
-// Function to filter tasks
 function showAllTasks() {
     const allTasks = document.querySelectorAll('.todo');
     allTasks.forEach(task => {
         task.style.display = 'flex';
     });
 }
+
 function showCompletedTasks() {
     const allTasks = document.querySelectorAll('.todo');
     allTasks.forEach(task => {
@@ -171,6 +168,7 @@ function showCompletedTasks() {
         }
     });
 }
+
 function showActiveTasks() {
     const allTasks = document.querySelectorAll('.todo');
     allTasks.forEach(task => {
